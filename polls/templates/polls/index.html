@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Enquete - Index</title>
+        <link rel="stylesheet" href="{% static 'polls/css/style.css' %}">
+    </head>
+
+    <body>
+    <center
+
+        <div id="site">
+            <h1>Racha dos Amigos AABB</h1>
+
+            <h3>
+            <p>
+
+                A ideia principal foi juntar os amigos para <br/>
+                relaxarmos ao final do dia numa brincadeira<br/>
+                descontraída. Contudo, sempre priorizando <br/>
+                a segurança e o respeito mútuo entre cada <br/>
+                participante.
+
+            </p>
+            <h3/>
+            </p>
+            <p>
+                <h2>Fotos dos Atletas</h2>
+                <img width=450 height=250 src="{% static 'polls/images/central.png' %}" align="middle"/>
+            </p>
+
+            <p>
+                <h2>Melhores momentos</h2>
+                <video controls autoplay width="350" height="200">
+                    <source src="{% static 'polls/video/racha2.mp4' %}">
+                    <source src="{% static 'polls/video/racha2.webm' %}">
+                    <source src="{% static 'polls/video/racha2.ogv' %}">
+
+                </video>
+            </p>
+            <p>
+                <h2>Gool 1</h2>
+                <video controls autoplay width="350" height="200">
+                    <source src="{% static 'polls/video/gool1.mp4' %}">
+                    <source src="{% static 'polls/video/gool1.webm' %}">
+                    <source src="{% static 'polls/video/gool1.ogv' %}">
+
+                </video>
+            </p>
+
+            <p>
+                <h2>Gool 2</h2>
+                <video controls autoplay width="350" height="200">
+                    <source src="{% static 'polls/video/gool2.mp4' %}">
+                    <source src="{% static 'polls/video/gool2.webm' %}">
+                    <source src="{% static 'polls/video/gool2.ogv' %}">
+
+                </video>
+            </p>
+            <button onclick="teste();">Clique aqui!</button>
+
+            <h3>
+            {% if latest_question_list %}
+
+            {% for question in latest_question_list %}
+                <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+
+            {% endfor %}
+
+            {% else %}
+
+            <p>No polls are available.</p>
+
+            {% endif %}
+            </h3>
+        </div>
+
+    <script type="text/javascript" src="{% static 'polls/js/script.js' %}"></script>
+    <center/>
+    </body>
+</html>
