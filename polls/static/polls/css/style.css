@@ -1,8 +1,28 @@
-body {
-    background-color: #341256;
-    color: #ffffff;
+header {
+    background-color: #0055E2;
+    min-height: 64px;
 }
-a {
-    text.decoration: none;
-    color: #ffffff;
+
+header ul {
+    margin: 0;
+}
+
+section nav {
+    background-color: #FFF900;
+    padding: 1rem;
+}
+
+footer {
+    background-color: #454545;
+    padding: 2rem;
+}
+
+@media (min-width: 576px) {
+    main {
+        height: calc(100vh - 320px);
+        overflow: auto;
+    }
+    footer {
+        min-height: 236px;
+    }
 }
