@@ -20,14 +20,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-urlpatterns = [
-    path('', include('polls.urls')),
-    path('admin/', admin.site.urls),
-]
-'''
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
-    url(r'^polls/', include('polls.urls')),
-    url(r'^admin/', admin.site.urls),
-]
-'''
+    path('', include('polls.urls')),
+    path('blog/', include('blog.urls')),
+    path('admin/', admin.site.urls),
+    path('galeria/', include('galeria.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
+
+

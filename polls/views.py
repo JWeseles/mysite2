@@ -71,5 +71,3 @@ class EventosView(TemplateView):
 
 class ContatoView(TemplateView):
     template_name = 'polls/contato.html'
-
-

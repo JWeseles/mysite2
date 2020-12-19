@@ -16,13 +16,13 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Usando PostgreSQL com heroku
-
+'''
 import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config()
 }
-
+'''
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -30,7 +30,7 @@ DATABASES = {
 SECRET_KEY = '6bi3cg4p13&p#3$j4wym1*htu@k1nla*&s&g6v$0niykrq$p1)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -38,6 +38,8 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'polls.apps.PollsConfig',
+    'blog.apps.BlogConfig',
+    'galeria.apps.GaleriaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,9 +82,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mysiteaabb.wsgi.application'
 
-'''
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -93,7 +96,7 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-'''
+
 '''
 DATABASES = {
     'default': {
@@ -137,5 +140,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# configurações de e-mail
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # o Heroku não disponibiliza um provedor de e-mail
+"""
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = 'no-reply@seudomínio.com.br'
+EMAIL_PORT = 587
+EMAIL_USER_TSL = True
+EMAIL_HOST_PASSWORD = 'sua-senha'
+"""
